@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p  k-text="name">测试</p>
+        <p>ooooooooo</p>
+        <span>{{name}}</span>
+        <button @click="add">点一下试试</button>
+    </div>
+    <script src="./dep.js"></script>
+    <script src="./watcher.js"></script>
+    <script src="./complier.js"></script>
+    <script src="./kvue.js"></script>
+    <script>
+        const vm = new KVue({
+            el: "#app",
+            data: {
+                foo:'foo',
+                bar: {
+                    mua: 'haha'
+                },
+                name: 'baishuang'
+            },
+            methods: {
+                add: () => {
+                    console.log('触发事件add')
+                }
+            },
+
+        })
+        vm.foo = 'nihao'
+        vm.bar.mua = 'hello'
+        console.log(this.$data)
+        setTimeout(()=>{
+            vm.name = 'wangce'
+        }, 2000)
+    </script>
+</body>
+</html>
